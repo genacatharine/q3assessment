@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Message from './components/Message'
-import MessageList from '.components/MessageList'
+import MessageList from './components/MessageList'
+import ToolBar from './components/ToolBar'
 
 class App extends Component {
+
   constructor(props){
-       super(props)
-       this.state = {messages : messages}
+    super(props)
+    this.state= {messages: []}
   }
+
+  async componentDidMount() {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/messages`)
+      const json = await response.json()
+      console.log('hello', json)
+      this.setState({messages: json})
+    }
 
   render() {
     return (
-      <div className="App">
-      <MessageList messages= {this.state.messages} />
+      <div className="container">
+        <ToolBar />
+        <MessageList messages = {this.state.messages} />
       </div>
     );
   }
