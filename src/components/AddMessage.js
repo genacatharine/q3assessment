@@ -15,6 +15,7 @@ const AddMessage = ({createMessage}) =>{
     <div>
     <h3>Add a Message</h3>
     <form onSubmit={handleAddMessage}>
+
       <input name="message" placeholder="Message" id="message" />
       <input name="personsname" placeholder="Name" id="nameHere" />
       <input type="submit" value="Send" />

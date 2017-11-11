@@ -31,7 +31,7 @@ seeker = (searchTerm) => {
   })
 }
 toggleCompose() {
-   this.setState({composing: !this.state.AddMessage})
+   this.setState({composing: !this.state.composing})
  }
 
 //add new message
@@ -83,6 +83,7 @@ deleteMessages = async (e) => {
         <ToolBar
           seeker = {this.seeker}
           toggleCompose={this.toggleCompose.bind(this)}
+
         />
         {
               this.state.composing ?
