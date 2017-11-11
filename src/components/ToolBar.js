@@ -15,10 +15,8 @@ const ToolBar = ({messages, seeker, showAll, toggleCompose}) =>{
         <div className="input-group">
           <input onChange={ searchFor }  id="search" name="search" type="text" placeholder="SEARCH HERE"></input>
           <span className="input-group-btn">
-            <button className="btn btn-default"  type="button">Search</button>
             <button className="btn btn-default" onClick={toggleCompose} type="button" id="compose">Compose</button>
           </span>
-            {/* <span>{this.state.messages.length}</span> */}
         </div>
       </div>
     </div>

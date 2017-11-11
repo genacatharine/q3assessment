@@ -14,8 +14,17 @@ const MessageList= ({messages, deleteMessages}) => {
   return (
 
     <div>
-      <h1> Messages</h1>
-    {mappedMsgs}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Message</th>
+          </tr>
+        </thead>
+        <tbody>
+            {mappedMsgs}
+        </tbody>
+      </table>
     </div>
   )
 }

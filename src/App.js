@@ -30,9 +30,10 @@ seeker = (searchTerm) => {
     filtered: [...match]
   })
 }
-toggleCompoes = () => {
-  
-}
+toggleCompose() {
+   this.setState({composing: !this.state.AddMessage})
+ }
+
 //add new message
 createMessage = async (message) => {
          const response = await fetch(`${process.env.REACT_APP_API_URL}/messages`, {
@@ -45,7 +46,10 @@ createMessage = async (message) => {
          })
          const message1 = await response.json()
          window.location.reload();
-           this.setState({messages: [...this.state.messages, message1]})
+           this.setState({
+             messages: [...this.state.messages, message1],
+             composing: false,
+           })
        }
 deleteMessages = async (e) => {
   e.preventDefault()
@@ -75,13 +79,20 @@ deleteMessages = async (e) => {
   render() {
     return (
       <div className="App">
+        <div className="container">
         <ToolBar
           seeker = {this.seeker}
+          toggleCompose={this.toggleCompose.bind(this)}
         />
+        {
+              this.state.composing ?
+                <AddMessage createMessage={ this.createMessage.bind(this)} /> : null
+            }
         <MessageList messages = {this.state.filtered}
                     deleteMessages={this.deleteMessages.bind(this)}
          />
-        <AddMessage createMessage={this.createMessage}/>
+
+        </div>
       </div>
     );
   }
