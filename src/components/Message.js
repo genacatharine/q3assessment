@@ -5,11 +5,10 @@ const Message = ({
   deleteMessages
 }) => {
   return (
-    <div id={message.id}>
+    <div>
       {message.message}
       {message.name}
-
-    <button id="delete" onClick={deleteMessages}>Delete</button>
+    <button onClick={deleteMessages} id={message.id}>Delete</button>
     </div>
   )
 }

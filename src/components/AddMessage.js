@@ -7,11 +7,7 @@ const AddMessage = ({createMessage}) =>{
       name: event.target.personsname.value,
       message: event.target.message.value
     }
-
     console.log('event', event.target.message.value)
-
-
-
       createMessage(newMessage)
       event.target.reset
 }
@@ -19,8 +15,8 @@ const AddMessage = ({createMessage}) =>{
     <div>
     <h3>Add a Message</h3>
     <form onSubmit={handleAddMessage}>
-      <input name="personsname" placeholder="Name" id="nameHere" />
       <input name="message" placeholder="Message" id="message" />
+      <input name="personsname" placeholder="Name" id="nameHere" />
       <input type="submit" value="Send" />
     </form>
   </div>
