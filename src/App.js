@@ -83,7 +83,7 @@ deleteMessages = async (e) => {
         <ToolBar
           seeker = {this.seeker}
           toggleCompose={this.toggleCompose.bind(this)}
-
+          messages = {this.state.messages}
         />
         {
               this.state.composing ?
